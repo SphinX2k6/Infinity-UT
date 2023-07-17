@@ -1,6 +1,6 @@
 # `🧿 𝙸𝚗𝚏𝚒𝚗𝚒𝚝𝚢-𝚄𝚃 ∞͛  💫` 
 
-
+<img src="https://github.com/SphinX2k6/Infinity-UT/raw/main/Assets/inflogo.jpg"/>
 
 ### `—◉ 🔗 𝕋𝕖𝕒𝕞 𝕆𝕗𝕗𝕚𝕔𝕚𝕒𝕝𝕤 🔗`
 
