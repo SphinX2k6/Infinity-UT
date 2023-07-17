@@ -1,4 +1,4 @@
-# `🧿 𝙸𝚗𝚏𝚒𝚗𝚒𝚝𝚢-𝚄𝚃 ∞͛  💫` 
+<p align="center">`🧿 𝙸𝚗𝚏𝚒𝚗𝚒𝚝𝚢-𝚄𝚃 ∞͛  💫`</p> 
 
 <img src="https://github.com/SphinX2k6/Infinity-UT/raw/main/Assets/inflogo.jpg"/>
 
