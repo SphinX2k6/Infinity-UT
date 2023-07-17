@@ -2,6 +2,37 @@
 
 <img src="https://github.com/SphinX2k6/Infinity-UT/raw/main/Assets/inflogo.jpg"/>
 
+<p align="center"> 
+Konnichiwa Senpai, I am Infinity, an Opensource WhatsApp bot created by Ari_Senpai and his team, "Infinity" We are here to surpass your wildest imagination with an abundance of features, unwavering `stability`, and seamless `compatibility`. Our existence may be limitless, or perhaps we are simply a bot—I cannot say for certain. However, what I can assure you is that our name embodies the essence of boundless possibilities.
+
+<h3 align="center"> Infinity-UT - Possibilities are in our Name 💫
+</h4>
+
+<p align="center">
+  <a href="https://github.com/SphinX2k6/Infinity-UT/fork">
+    <img src="https://img.shields.io/github/forks/SphinX2k6/Infinity-UT?label=Fork&style=social">
+    
+    
+  <a href="https://github.com/SphinX2k6/Infinity-UT/stargazers">
+    <img src="https://img.shields.io/github/stars/SphinX2k6/Infinity-UT?style=social">
+  </a>
+<p align="center">
+<a href="https://github.com/SphinX2k6/Infinity-UT"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FSphinX2k6%2FInfinity-UT&count_bg=%23FFA305&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=People+Visited&edge_flat=false)](https://hits.seeyoufarm.com" width="150px" /></a>
+</p>
+
+ 
+<p align="center">
+<a href="https://github.com/SphinX2k6"><img title="Owner" src="https://img.shields.io/badge/Owner-Team Infinity-white.svg?style=for-the-badge&logo=github" width="170px"></a>
+
+ <a href="https://github.com/SphinX2k6/Infinity-UT/blob/main/LICENSE.md">
+  
+<img src='https://img.shields.io/github/license/SphinX2k6/Infinity-UT?color=%231e81b0&style=for-the-badge' width="114px">
+
+<p align="center">
+<a href="https://github.com/SphinX2k6"><img title="Open Source" src="https://img.shields.io/badge/Open%20Source-YES-green.svg?style=for-the-badge" width="150px"></a>
+<a href="https://github.com/SphinX2k6"><img title="" src="https://img.shields.io/badge/Maintained-YES-green.svg?style=for-the-badge" width="143px"></a>
+</p>
+
 ### `—◉ 🔗 𝕋𝕖𝕒𝕞 𝕆𝕗𝕗𝕚𝕔𝕚𝕒𝕝𝕤 🔗`
 
 <a href="https://undertaker1.carrd.co/" target="blank"><img src="https://img.shields.io/badge/Creator Profile-206EC8?style=for-the-badge&logo=discord&logoColor=white" /></a> 
@@ -15,18 +46,40 @@
 ### `—◉ 💕 PLUGINS 💕`
 
 - 𝑰𝒏 𝑭𝒖𝒕𝒖𝒓𝒆
+
+### `—◉ 💥 Scan QR 💥`
+ 
+<h4 align="center"> Scan QR
+</h4>
+
+<p align="center" >
+    <a href="https://marin-152-qr.aritramondal6.repl.co/">
+    <img src="https://github.com/SphinX2k6/Infinity-UT/assets/134761750/6057acc0-3271-4a0b-ab4b-e37fe2401ebc" width="170px" alt="Scan QR" >
+    </a>
+    <br>     
+</p>
   
 ### `—◉ 💥 𝐃𝐞𝐩𝐥𝐨𝐲 𝐨𝐧 𝐤𝐨𝐲𝐞𝐛 💥`
 
-[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=https://github.com/SphinX2k6/Infinity-UT&branch=master&name=infinity-ut)
+<p align="center" >
+    <a href="https://app.koyeb.com/deploy?type=git&repository=https://github.com/SphinX2k6/Infinity-UT&branch=master&name=infinity-ut">
+    <img src="https://www.koyeb.com/static/images/deploy/button.svg" width="170px" alt="Koyeb" >
+    </a>
+    <br>     
+</p>
 
 ### `—◉ 🌌 𝐃𝐞𝐩𝐥𝐨𝐲 𝐨𝐧 𝐑𝐞𝐩𝐥𝐢𝐭 🌌`
 
-[![Run on Repl.it](https://repl.it/badge/github/SphinX2k6/Infinity-UT)](https://repl.it/github/SphinX2k6/Infinity-UT) 
+<p align="center" >
+    <a href="https://repl.it/github/SphinX2k6/Infinity-UT">
+    <img src="https://repl.it/badge/github/SphinX2k6/Infinity-UT" width="170px" alt="Koyeb" >
+    </a>
+    <br>     
+</p>
 
 ### `—◉ ⚙️ 𝘚𝘌𝘛𝘛𝘐𝘕𝘎𝘚 ⚙️`
-- 𝐶𝐿𝑂𝑁𝐸 𝑇𝐻𝐸 𝑅𝐸𝑃𝑂𝑆𝐼𝑇𝑂𝑅𝑌 [Aqui](https://github.com/SphinX2k6/Infinity-UT/fork)
-- 𝐶𝐻𝐴𝑁𝐺𝐸 𝑂𝑊𝑁𝐸𝑅'𝑆 𝑁𝑈𝑀𝐵𝐸𝑅 [Aqui](https://github.com/SphinX2k6/Infinity-UT/blob/master/Configurations.js)
+- 𝐶𝐿𝑂𝑁𝐸 𝑇𝐻𝐸 𝑅𝐸𝑃𝑂𝑆𝐼𝑇𝑂𝑅𝑌 [Click Me](https://github.com/SphinX2k6/Infinity-UT/fork)
+- 𝐶𝐻𝐴𝑁𝐺𝐸 𝑂𝑊𝑁𝐸𝑅'𝑆 𝑁𝑈𝑀𝐵𝐸𝑅 [Click Me](https://github.com/SphinX2k6/Infinity-UT/blob/master/Configurations.js)
 
 ### `—◉ 👾 𝐴𝐶𝑇𝐼𝑉𝐴𝑇𝐸 𝐼𝑁 𝑇𝐸𝑅𝑀𝑈𝑋 👾` 
 - 𝘛𝘠𝘗𝘌 𝘛𝘏𝘌 𝘍𝘖𝘓𝘓𝘖𝘞𝘐𝘕𝘎 𝘊𝘖𝘔𝘔𝘈𝘕𝘋𝘚 𝘖𝘕𝘌 𝘉𝘠 𝘖𝘕𝘌:
