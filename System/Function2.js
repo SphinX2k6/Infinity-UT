@@ -1,4 +1,4 @@
-const { proto, delay, getContentType } = require("@queenanya/baileys2");
+const { proto, delay, getContentType } = require("1infbaileysjs");
 const chalk = require("chalk");
 const fs = require("fs");
 const { unlink } = require("fs").promises;
@@ -234,6 +234,18 @@ exports.parseMention = (text = "") => {
     (v) => v[1] + "@s.whatsapp.net"
   );
 };
+
+exports.bufferTopath = async (buffer) => {
+  const filename = `${Math.random().toString(36)}`;
+  const base64 = Buffer.from(buffer).toString('base64');
+  const mimeType = 'image/jpeg';
+  
+await fs.writeFileSync(`./System/Cache/${filename}.jpeg`, buffer);
+  await sleep(4000); 
+  var redFile = `./System/Cache/${filename}.jpeg`
+  return redFile;
+}
+
 
 exports.GIFBufferToVideoBuffer = async (image) => {
   const filename = `${Math.random().toString(36)}`;
