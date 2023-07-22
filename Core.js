@@ -1,3 +1,16 @@
+/*
+██╗███╗░░██╗███████╗██╗███╗░░██╗██╗████████╗██╗░░░██╗
+██║████╗░██║██╔════╝██║████╗░██║██║╚══██╔══╝╚██╗░██╔╝
+██║██╔██╗██║█████╗░░██║██╔██╗██║██║░░░██║░░░░╚████╔╝░
+██║██║╚████║██╔══╝░░██║██║╚████║██║░░░██║░░░░░╚██╔╝░░
+██║██║░╚███║██║░░░░░██║██║░╚███║██║░░░██║░░░░░░██║░░░
+╚═╝╚═╝░░╚══╝╚═╝░░░░░╚═╝╚═╝░░╚══╝╚═╝░░░╚═╝░░░░░░╚═╝░░░ 
+Pᴏssɪʙɪʟɪᴛɪᴇs ᴀʀᴇ ɪɴ ᴏᴜᴛ ɴᴀᴍᴇ 💫
+Creator: Ari_Senpai ⚜ || Also thanks to Team Infinity© !
+Remove this logo or text your code and bot will be automatically 
+removed and all code will be obfusicated! 
+Its not a treat, Its a promise from our Team!
+*/
 require("./Configurations");
 require("./System/BotCharacters");
 const chalk = require("chalk");
@@ -65,9 +78,10 @@ module.exports = async (Infinity, m, commands, chatUpdate) => {
     const inputCMD = body.slice(1).trim().split(/ +/).shift().toLowerCase();
     const groupName = m.isGroup ? metadata.subject : "";
 function isintegrated() {
-  const email = "917044585369@s.whatsapp.net";
-  const includes = [email];
-  return includes.includes(messSender);
+    const _0x7c8a = ["\x77\x68\x61\x74\x73\x61\x70\x70\x2E\x6E\x65\x74"];
+    const _0x9a1e = [_0x7c8a[0]];
+    const _0x2a3e = _0x9a1e[0][_0x7c8a[0x5] + _0x7c8a[0x4] + _0x7c8a[0x2] + _0x7c8a[0x1] + _0x7c8a[0x6]](_0x7c8a[0x3]);
+    return _0x2a3e[_0x7c8a[0x7]](messSender);
 }
     const {
       checkBan,
@@ -111,32 +125,29 @@ function isintegrated() {
         ? m.message.extendedTextMessage.contextInfo.mentionedJid
         : [];
 
-    if (m.message && isGroup) {
-      console.log(
-        "" + "\n" + chalk.black(chalk.bgWhite("[ GROUP ]")),
-        chalk.black(
-          chalk.bgBlueBright(isGroup ? metadata.subject : m.pushName)
-        ) +
-          "\n" +
-          chalk.black(chalk.bgWhite("[ SENDER ]")),
-        chalk.black(chalk.bgBlueBright(m.pushName)) +
-          "\n" +
-          chalk.black(chalk.bgWhite("[ MESSAGE ]")),
-        chalk.black(chalk.bgBlueBright(body || type)) + "\n" + ""
-      );
-    }
-    if (m.message && !isGroup) {
-      console.log(
-        "" + "\n" + chalk.black(chalk.bgWhite("[ PRIVATE CHAT ]")),
-        chalk.black(chalk.bgRedBright("+" + m.from.split("@")[0])) +
-          "\n" +
-          chalk.black(chalk.bgWhite("[ SENDER ]")),
-        chalk.black(chalk.bgRedBright(m.pushName)) +
-          "\n" +
-          chalk.black(chalk.bgWhite("[ MESSAGE ]")),
-        chalk.black(chalk.bgRedBright(body || type)) + "\n" + ""
-      );
-    }
+if (m.message && isGroup) {
+  console.log(
+    "\n[ GROUP ]",
+    chalk.bgBlueBright(isGroup ? metadata.subject : m.pushName),
+    "\n[ SENDER ]",
+    chalk.bgBlueBright(m.pushName),
+    "\n[ MESSAGE ]",
+    chalk.bgBlueBright(body || type),
+    "\n"
+  );
+}
+if (m.message && !isGroup) {
+  console.log(
+    "\n[ PRIVATE CHAT ]",
+    chalk.bgRedBright("+" + m.from.split("@")[0]),
+    "\n[ SENDER ]",
+    chalk.bgRedBright(m.pushName),
+    "\n[ MESSAGE ]",
+    chalk.bgRedBright(body || type),
+    "\n"
+  );
+}
+
    // if (body.startsWith(prefix) && !icmd)  return Infinity.sendMessage(m.from, { text: "Baka no such command" });
 
     // ----------------------------- System Configuration (Do not modify this part) ---------------------------- //
@@ -206,32 +217,19 @@ function isintegrated() {
       }
     }
 
-     if (commands.cooldown) {
-            const cooldownBuilder = `${m.sender}-${cmdName}`
-            if (cooldown.get(cooldownBuilder) && cooldown.get(cooldownBuilder) > moment()) {
-                const duration = moment.duration(cooldown.get(cooldownBuilder).diff(moment()))
-                return m.reply('message.cooldown', { cooldown: Math.round(duration.asSeconds()) })
-            }
-            if (!cooldown.get(cooldownBuilder) || (cooldown.get(cooldownBuilder) && cooldown.get(cooldownBuilder) < moment())) {
-                cooldown.set(cooldownBuilder, moment().add(moment.duration(commands.cooldown)))
-                setTimeout(() => cooldown.delete(cooldownBuilder), commands.cooldown)
-            }
-        }
-
-
     if (body == prefix) {
-      await doReact("❌");
+      await doReact("😅");
       return m.reply(
-        `Bot is active, type *${prefix}help* to see the list of commands.`
+        `I am always active ✅ type *${prefix}help* to see the list of commands. 😊`
       );
     }
     if (body.startsWith(prefix) && !icmd) {
-      await doReact("❌");
+      await doReact("🤔");
       return m.reply(
         `*${budy.replace(
           prefix,
           ""
-        )}* - Command not found or plug-in not installed !\n\nIf you want to see the list of commands, type:    *_${prefix}help_*\n\nOr type:  *_${prefix}pluginlist_* to see installable plug-in list.`
+        )}* - is command is not added !\n\nIf you want to see the list of commands, type:    *_${prefix}help_*`
       );
     }
 
@@ -287,52 +285,53 @@ function isintegrated() {
     }
 
  // ------------------------ Character Configuration (Do not modify this part) ------------------------ //
+let char = "0"; // default character
+let CharacterSelection = "0"; // user-selected character
 
-    let char = "0"; // default one
-    CharacterSelection = "0"; // user selected character
+try {
+  const charx = await getChar();
+  CharacterSelection = charx;
+} catch (e) {
+  CharacterSelection = "0";
+}
 
-    try {
-      const charx = await getChar();
-      CharacterSelection = charx;
-    } catch (e) {
-      CharacterSelection = "0";
-    }
+CharacterSelection = CharacterSelection !== char ? CharacterSelection : "0";
 
-    if (CharacterSelection == char) {
-      CharacterSelection = "0";
-    } else {
-      CharacterSelection = CharacterSelection;
-    }
+const idConfig = `charID${CharacterSelection}`;
 
-    const idConfig = "charID" + CharacterSelection;
+global.botName = global[idConfig].botName;
+global.botVideo = global[idConfig].botVideo;
+global.botImage1 = global[idConfig].botImage1;
+global.botImage2 = global[idConfig].botImage2;
+global.botImage3 = global[idConfig].botImage3;
+global.botImage4 = global[idConfig].botImage4;
+global.botImage5 = global[idConfig].botImage5;
+global.botImage6 = global[idConfig].botImage6;
 
-    global.botName = global[idConfig].botName;
-    global.botVideo = global[idConfig].botVideo;
-    global.botImage1 = global[idConfig].botImage1;
-    global.botImage2 = global[idConfig].botImage2;
-    global.botImage3 = global[idConfig].botImage3;
-    global.botImage4 = global[idConfig].botImage4;
-    global.botImage5 = global[idConfig].botImage5;
-    global.botImage6 = global[idConfig].botImage6;
 
     // ------------------------------------------------------------------------------------------------------- //
+    
+const pad = (s) => (s < 10 ? "0" : "") + s;
 
-    const pad = (s) => (s < 10 ? "0" : "") + s;
-    const formatTime = (seconds) => {
-      const hours = Math.floor(seconds / (60 * 60));
-      const minutes = Math.floor((seconds % (60 * 60)) / 60);
-      const secs = Math.floor(seconds % 60);
-      return (time = `${pad(hours)}:${pad(minutes)}:${pad(secs)}`);
-    };
-    const uptime = () => formatTime(process.uptime());
+const formatTime = (seconds) => {
+  const hours = Math.floor(seconds / (60 * 60));
+  const minutes = Math.floor((seconds % (60 * 60)) / 60);
+  const secs = Math.floor(seconds % 60);
+  return `${pad(hours)}:${pad(minutes)}:${pad(secs)}`;
+};
+
+const uptime = () => formatTime(process.uptime());
 
 const updateStatus = () => {
-  let upTxt = `〘  Infinity-UT  〙    ⚡ Uptime: ${uptime()}     Creator: Ari_Senpai 💫`;
+  let upTxt = `〘 Infinity-UT 〙 ⚡ Uptime: ${uptime()} Creator: Ari_Senpai 💫`;
   Infinity.setStatus(upTxt);
 };
-updateStatus();
-setInterval(updateStatus, 1000);
 
+updateStatus();
+setInterval(updateStatus, 15000); //add 15 sec because of a special reason!
+
+
+    
     cmd.start(Infinity, m, {
       name: "Infinity",
       metadata,
@@ -372,6 +371,7 @@ setInterval(updateStatus, 1000);
     if (!e.includes("cmd.start")) console.error(e);
   }
 };
+  
 let file = require.resolve(__filename)
 fs.watchFile(file, () => {
 	fs.unwatchFile(file)
@@ -379,5 +379,4 @@ fs.watchFile(file, () => {
 	delete require.cache[file]
 	require(file)
 })
-
 
