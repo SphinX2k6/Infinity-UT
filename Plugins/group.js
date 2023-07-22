@@ -32,6 +32,7 @@ let mergedCommands = [
   "leave",
   "promote",
   "profile",
+  "add",
   "remove",
   "revoke",
   "setgcdesc",
@@ -61,6 +62,7 @@ module.exports = {
     "leave",
     "promote",
     "profile",
+    "add",
     "remove",
     "revoke",
     "setgcdesc",
@@ -443,6 +445,20 @@ break
         );
         break;
 
+      case "join":
+       if (!isBotAdmin) {
+          
+          return m.reply(`*Bot* must be *Admin* in order to use this Command!`);
+        }
+    if (!text) return m.reply("🔍 Please provide the group link")
+        let result = text[0].split('https://chat.whatsapp.com/')[1]
+        m.reply('Chotto Matte!')
+    await Infinity.groupAcceptInvite(result)
+m.reply(`Joined`).catch((e)=>{
+  m.reply('Unknown Error Occured')
+})        
+break 
+        
       case "leave":
         if (!isAdmin) {
           
@@ -537,6 +553,45 @@ break
 
         break;
 
+      case "add":
+        if (!isAdmin) {
+          
+          return m.reply(`*You* must be *Admin* in order to use this Command!`);
+        }
+        if (!isBotAdmin) {
+          
+          return m.reply(`*Bot* must be *Admin* in order to use this Command!`);
+        }
+
+        if (!text ) {
+          
+          return Infinity.sendMessage(
+            m.from,
+            { text: `Please add number of a user to *Add* !` },
+            { quoted: m }
+          );
+        }
+     try {
+        let usersadd = text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
+
+        await Infinity.groupParticipantsUpdate(m.from, [usersadd], "add").then(
+          (res) =>
+              m.reply(`${usersadd} is been added!`)
+        );
+     } catch(e) {
+       try {
+const code = await Infinity.groupInviteCode(m.from)
+//m.reply("https://chat.whatsapp.com/" + code)
+let dm = '📪Sent you the Group Link in personal message.'
+let lemo = `*Invite link:* https://chat.whatsapp.com/${code}`
+//await Infinity.sendMessage(m.from,{text: `*${pushName}* have a look in your DM`},{quoted:m})
+  await Infinity.sendMessage(usersadd,{text:lemo},{quoted:m})
+       } catch(e) {
+         m.reply('Sorry Failed to Add that User!')
+       }
+     }
+        break;
+        
       case "remove":
         if (!isAdmin) {
           
