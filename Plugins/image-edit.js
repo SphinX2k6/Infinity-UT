@@ -1,17 +1,86 @@
 const Jimp = require("jimp");
-const Canvacord = require("canvacord");
+const { GraphOrg } = require('../System/Uploader.js')
+var request = require('request');
+const { bufferTopath, sleep } = require('../System/Function2.js')
+const { convertToAnime } = require('../System/Scrapers.js')
+const canvacord = require("canvacord");
 const fs = require("fs");
+const axios = require('axios');
 const remobg = require("remove.bg");
+const cooldownManager = require('../System/cooldown.js');
 const { Sticker } = require("wa-sticker-formatter");
-let mergedCommands = ["blur", "circle", "jail", "removebg"];
+let mergedCommands = ["blur", "circle", "jail", "removebg", "defuse", "hitler",];
 
 module.exports = {
-  name: "audioedit",
-  uniquecommands: ["blur", "circle", "jail", "removebg"],
+  name: "imgedit",
+  uniquecommands: ["blur", "circle", "jail", "removebg","defuse","hitler",],
   alias: [...mergedCommands],
+  cooldown: 10000,
   description: "All Image Editing Commands",
-  start: async (Atlas, m, { inputCMD, text, doReact, mime, quoted }) => {
+  start: async (Infinity, m, { inputCMD, text, doReact, mime, quoted, prefix, mentionByTag }) => {
+
+ if (cooldownManager.checkCooldown(inputCMD, module.exports.cooldown) > 0) {
+      return m.reply(`Command is on cooldown. Please wait ${module.exports.cooldown / 1000} seconds.`);
+    }
+    
     switch (inputCMD) {
+
+case "hitler":
+  let errimg;
+  let ppuser;
+  let errresult;
+  if (m.quoted) {
+    try {
+      errimg = await Infinity.profilePictureUrl(m.quoted.sender, 'image');
+      errresult = await canvacord.Canvacord.hitler(errimg);
+    } catch (err) {
+      console.error(err);
+      errimg = "https://i.pinimg.com/564x/84/09/12/840912dd744e6662ab211b8070b5d84c.jpg";
+      errresult = await canvacord.Canvacord.hitler(errimg);
+    }
+  } else { m.reply("Please tag someone ! or mention a picture !") }
+  await Infinity.sendMessage(m.from, { image: errresult }, { quoted: m });
+  break;
+
+      case "triggered": 
+        let triimg;
+        let triresult;
+        let trippuser;
+        if (m.quoted) {
+            try {
+                triimg = await Infinity.profilePictureUrl(m.quoted.sender, 'image')
+            } catch {
+                triimg = "https://i.pinimg.com/564x/84/09/12/840912dd744e6662ab211b8070b5d84c.jpg"
+            }
+            triresult = await canvacord.Canvacord.trigger(triimg);
+        } else if (mentionByTag[0]) {
+            try {
+                triimg = await Infinity.profilePictureUrl(mentionByTag[0], 'image')
+            } catch {
+                triimg = "https://i.pinimg.com/564x/84/09/12/840912dd744e6662ab211b8070b5d84c.jpg"
+            }
+            triresult = await canvacord.Canvacord.trigger(triimg);
+        } else if (m.sender) {
+            try {
+                trippuser = await Infinity.profilePictureUrl(m.sender, 'image')
+            } catch {
+                trippuser = 'https://i.pinimg.com/564x/84/09/12/840912dd744e6662ab211b8070b5d84c.jpg'
+            }
+            triresult = await canvacord.Canvacord.trigger(trippuser);
+        }
+        let sticker = new Sticker(triresult, {
+            pack: `Triggred`,
+            author:"Ari_Senpai" ,
+            categories: ['🤩', '🎉'],
+            id: '12345',
+            quality: 100,
+            background: 'transparent'
+        })
+        const stikk = await sticker.toBuffer()
+        Infinity.sendMessage(m.from, {sticker: stikk}, {quoted: m})
+        break
+
+        
       case "blur":
         if (!m.quoted && !/image/.test(mime)) {
           await doReact("❔");
@@ -22,7 +91,7 @@ module.exports = {
           userPfp = await quoted.download();
         } else if (m.quoted) {
           try {
-            userPfp = await Atlas.profilePictureUrl(m.quoted.sender, "image");
+            userPfp = await Infinity.profilePictureUrl(m.quoted.sender, "image");
           } catch (e) {
             await doReact("❌");
             return m.reply(
@@ -41,7 +110,7 @@ module.exports = {
 
         img.getBuffer(`image/png`, (err, buffer) => {
           if (!err) {
-            Atlas.sendMessage(
+            Infinity.sendMessage(
               m.from,
               { image: buffer, caption: `_Created by:_ *${botName}*` },
               { quoted: m }
@@ -52,7 +121,7 @@ module.exports = {
           }
         });
         break;
-
+ 
       case "circle":
         if (/image/.test(mime)) {
           let mediaMess = await quoted.download();
@@ -60,7 +129,7 @@ module.exports = {
           await Jimp.read(mediaMess).then((image) => {
             return image.circle().getBuffer(Jimp.MIME_JPEG, (err, buffer) => {
               if (!err) {
-                Atlas.sendMessage(
+                Infinity.sendMessage(
                   m.from,
                   { image: buffer, caption: `_Created by:_ *${botName}*` },
                   { quoted: m }
@@ -88,7 +157,7 @@ module.exports = {
           userPfp = await quoted.download();
         } else if (m.quoted) {
           try {
-            userPfp = await Atlas.profilePictureUrl(m.quoted.sender, "image");
+            userPfp = await Infinity.profilePictureUrl(m.quoted.sender, "image");
           } catch (e) {
             await doReact("❌");
             return m.reply(
@@ -100,9 +169,9 @@ module.exports = {
           return m.reply("Please tag someone ! or mention a picture !");
         }
         await doReact("🔲");
-        const result = await Canvacord.Canvacord.jail(userPfp, false);
+        const result = await canvacord.canvacord.jail(userPfp, false);
 
-        await Atlas.sendMessage(
+        await Infinity.sendMessage(
           m.from,
           { image: result, caption: "*Sent to Horney jail*\n" },
           { quoted: m }
@@ -176,7 +245,7 @@ module.exports = {
         await doReact("☯️");
         let rbgKEY = rbgKEYS[Math.floor(Math.random() * rbgKEYS.length)];
         let outputFile = await "./System/Cache/removeBgOUT.png";
-        let qFile = await Atlas.downloadAndSaveMediaMessage(quoted);
+        let qFile = await Infinity.downloadAndSaveMediaMessage(quoted);
 
         var bgRempic = await remobg.removeBackgroundFromImageFile({
           path: qFile,
@@ -187,7 +256,7 @@ module.exports = {
           outputFile,
         });
 
-        await Atlas.sendMessage(
+        await Infinity.sendMessage(
           m.from,
           {
             image: fs.readFileSync(outputFile),
@@ -199,6 +268,39 @@ module.exports = {
         fs.unlinkSync(outputFile);
         break;
 
+        case "defuse":
+        let userPfp
+        if (!m.quoted && !/image/.test(mime)) {
+          await doReact("❔");
+          return m.reply("Please tag someone ! or mention a picture !");
+        }
+      
+try {
+ if (/image/.test(mime)) {
+let pathpic = await Infinity.downloadAndSaveMediaMessage(quoted);
+   await sleep(1000)
+ var piclink = await GraphOrg(pathpic);
+        
+ await doReact("✔️");
+   
+ const quedId = await convertToAnime(text, piclink)  
+ console.log(quedId)  
+await Infinity.sendMessage(
+          m.from,
+          {
+            image: { url: quedId },
+            caption: `_Created by: *${botName}*_`,
+          },
+          { quoted: m }
+        );
+          } else {
+          await doReact("❔");
+          return m.reply("Please tag someone ! or mention a picture !");
+        }
+} catch(e) { console.log(e) }       
+break;
+
+        
       default:
         break;
     }
