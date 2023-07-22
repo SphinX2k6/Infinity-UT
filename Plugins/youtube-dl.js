@@ -7,6 +7,7 @@ const {
   getBuffer,
   GIFBufferToVideoBuffer,
 } = require("../System/Function2.js");
+const cooldownManager = require('../System/cooldown.js');
 
 let mergedCommands = [
   "play",
@@ -27,8 +28,12 @@ module.exports = {
   alias: [...mergedCommands],
   uniquecommands: ["song", "video", "ytmp3", "ytmp4"],
   cooldown: 60 * 1000,
-  description: "All file dowloader commands",
+  description: "All file downloader commands",
   start: async (Infinity, m, { inputCMD, text, doReact, prefix, pushName }) => {
+ if (cooldownManager.checkCooldown(inputCMD, module.exports.cooldown) > 0) {
+      return m.reply(`Command is on cooldown. Please wait ${module.exports.cooldown / 1000} seconds.`);
+    }
+    
     switch (inputCMD) {
       case "play":
       case "song":
@@ -39,7 +44,7 @@ module.exports = {
           );
         }
         await doReact("📥");
-        thumbInfinity = "https://graph.org/file/d0a287fa875c809f234ce.jpg";
+        thumbInfinity = "https://graph.org/file/b669aa88f4ced27b98532.jpg";
         songInfo = await yts(text);
         song = songInfo.videos[0];
         videoUrl = song.url;
@@ -122,7 +127,7 @@ _🏮 Video Uploaded:_ *${song.ago}*\n`,
         song = songInfo.videos[0];
         videoUrl = song.url;
         videoId = videoUrl.split("v=")[1];
-        thumbInfinity = "https://graph.org/file/d0a287fa875c809f234ce.jpg";
+        thumbInfinity = "https://graph.org/file/b669aa88f4ced27b98532.jpg";
 
         await Infinity.sendMessage(
           m.from,
