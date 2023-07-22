@@ -16,15 +16,14 @@ const fs = require("fs");
 
 let gg = process.env.MODS;
 if (!gg) {
-  gg = "917044585369";
+  gg = ""; // add your number
 }
 
 global.owner = gg.split(",");
-global.mongodb = process.env.MONGODB || "mongodb+srv://arisenpai:vxZEYWkWyRdscX9A@infinity-bot.ursqr7a.mongodb.net/?retryWrites=true&w=majority";
+global.mongodb = process.env.MONGODB || ""; // add your mongouri
 global.mainlogo = fs.readFileSync("./Assets/inflogo.jpg");
-global.sessionId = process.env.SESSION_ID || "AriSenpai550318972";
-global.prefa = process.env.PREFIX || "-";
-global.tenorApiKey = process.env.TENOR_API_KEY || "AIzaSyCyouca1_KKy4W_MG1xsPzuku5oa8W358c";
+global.prefa = process.env.PREFIX || "-"; //add random prefix like: - , . 
+global.tenorApiKey = process.env.TENOR_API_KEY || "AIzaSyCyouca1_KKy4W_MG1xsPzuku5oa8W358c"; // add yours
 global.packname = process.env.PACKNAME || `Infinity Bot`;
 global.author = process.env.AUTHOR || "by: Team Infinity";
 global.port = process.env.PORT || "0";
