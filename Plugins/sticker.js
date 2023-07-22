@@ -11,7 +11,6 @@ const {
 let mergedCommands = [
   "sticker",
   "s",
-  "s2",
   "steal",
   "take",
   "stickercrop",
@@ -72,7 +71,7 @@ module.exports = {
             type: StickerTypes.FULL,
             categories: ["🤩", "🎉"],
             id: "12345",
-            quality: 70,
+            quality: 100,
             background: "transparent",
           });
           const stickerBuffer = await stickerMess.toBuffer();
@@ -94,7 +93,7 @@ module.exports = {
             type: StickerTypes.FULL,
             categories: ["🤩", "🎉"],
             id: "12345",
-            quality: 70,
+            quality: 100,
             background: "transparent",
           });
           const stickerBuffer2 = await stickerMess.toBuffer();
