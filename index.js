@@ -1,3 +1,16 @@
+/*
+██╗███╗░░██╗███████╗██╗███╗░░██╗██╗████████╗██╗░░░██╗
+██║████╗░██║██╔════╝██║████╗░██║██║╚══██╔══╝╚██╗░██╔╝
+██║██╔██╗██║█████╗░░██║██╔██╗██║██║░░░██║░░░░╚████╔╝░
+██║██║╚████║██╔══╝░░██║██║╚████║██║░░░██║░░░░░╚██╔╝░░
+██║██║░╚███║██║░░░░░██║██║░╚███║██║░░░██║░░░░░░██║░░░
+╚═╝╚═╝░░╚══╝╚═╝░░░░░╚═╝╚═╝░░╚══╝╚═╝░░░╚═╝░░░░░░╚═╝░░░ 
+Pᴏssɪʙɪʟɪᴛɪᴇs ᴀʀᴇ ɪɴ ᴏᴜᴛ ɴᴀᴍᴇ 💫
+Creator: Ari_Senpai ⚜ || Also thanks to Team Infinity© !
+Remove this logo or text your code and bot will be automatically 
+removed and all code will be obfusicated! 
+Its not a treat, Its a promise from our Team!
+*/
 require("./Configurations");
 const {
   default: infConnect,
@@ -7,7 +20,7 @@ const {
   useMultiFileAuthState,
   makeInMemoryStore,
   jidDecode,
-} = require("@queenanya/baileys2");
+} = require("1infbaileysjs");
 var qrcode = require('qrcode');
 const fs = require("fs");
 const figlet = require("figlet");
@@ -26,7 +39,6 @@ const welcomeLeft = require("./System/Welcome.js");
 const { readcommands, commands } = require("./System/ReadCommands.js");
 commands.prefix = global.prefa;
 const mongoose = require("mongoose");
-//const qrcode = require("qrcode");
 const {
   getPluginURLs, // -------------------- GET ALL PLUGIN DATA FROM DATABASE
 } = require("./System/MongoDB/MongoDb_Core.js");
@@ -39,19 +51,25 @@ const store = makeInMemoryStore({
   }),
 });
 
-// Infinity Server configuration
 let qr_gen = "invalid";
 let status;
+if (global.autopurge == 'true') {
+console.log('[ 💫 ] Auto Purgesession Activated')
+setInterval(async () => {
+    await purgeSession()
+    await rmCache()
+console.log(chalk.cyanBright(`\n▣────────[ AUTOPURGESESSIONS ]───────────···\n│\n▣─❧ FILES DELETED ✅\n│\n▣────────────────────────────────────···\n`))
+}, 1000 * 60)
+}
 const startInfinity = async () => {
   try {
     await mongoose.connect(mongodb);
-    console.log("Establishing secure connection with MongoDB...");
+   console.log('Establishing secure connection to MongoDB')
+   console.log("✅ Connection established with MongoDB!");
   } catch (err) {
-    console.log("Error connecting to MongoDB:");
-    console.log(err);
+    console.log('Please check if your MongoDB URI is correct. Error:'+err);
     return;
   }
-  //const { getAuthFromDatabase } = new Auth(sessionId);
 
   const { saveCreds, state, clearCreds } = await useMultiFileAuthState('./authinf');
   console.log(
@@ -71,7 +89,7 @@ const startInfinity = async () => {
 
   const Infinity = infConnect({
     logger: pino({ level: "silent" }),
-    printQRInTerminal: true,
+    printQRInTerminal: false, //enable it if unable to qcan qr on website
     browser: ["Infinity", "Safari", "1.0.0"],
     auth: state,
     version,
@@ -126,7 +144,6 @@ const startInfinity = async () => {
     }
   }
 
-  await readcommands();
 
   Infinity.ev.on("creds.update", saveCreds);
   Infinity.serializeM = (m) => smsg(Infinity, m, store);
@@ -134,7 +151,14 @@ const startInfinity = async () => {
     const { lastDisconnect, connection, qr } = update;
     if (connection) {
       console.info(`[ 💫 ] Server Status => ${connection}`);
+      if (connection === 'open') {
+        console.log('[ 💫 ] Loading up plugins....')
+        const loaded = await readcommands();
+        if (loaded === "complete") {
+        console.log("[ 💫 ] Command reading completed successfully.");
     }
+  }
+}
 
     if (connection === "close") {
       let reason = new Boom(lastDisconnect?.error)?.output.statusCode;
@@ -229,10 +253,11 @@ const startInfinity = async () => {
       buffer = Buffer.concat([buffer, chunk]);
     }
     let type = await FileType.fromBuffer(buffer);
-    trueFileName = attachExtension ? filename + "." + type.ext : filename;
+    let randnmae = await Math.floor(Math.random() * 100000000);
+    trueFileName = attachExtension ? randnmae + "." + type.ext : randnmae;
     // save to file
-    await fs.writeFileSync(trueFileName, buffer);
-    return trueFileName;
+    await fs.writeFileSync(`./System/Cache/${trueFileName}`, buffer);
+    return `./System/Cache/${trueFileName}`;
   };
 
   Infinity.downloadMediaMessage = async (message) => {
@@ -391,4 +416,23 @@ const qrCodeBuffer = await qrcode.toBuffer(qr_gen);
     res.send(qrCodeBuffer);
 });
 
-app.listen(PORT);
+app.listen(PORT);    
+
+
+function purgeSession() {
+    let prekey = []
+    let directorio = fs.readdirSync("./authinf")
+    let filesFolderPreKeys = directorio.filter(file => {
+        return file.startsWith('pre-key-')
+    })
+    prekey = [...prekey, ...filesFolderPreKeys]
+    filesFolderPreKeys.forEach(files => {
+    fs.unlinkSync(`./authinf/${files}`)
+})
+}
+function rmCache() {
+    fs.readdirSync("./System/Cache").forEach((file) => {
+      const filePath = path.join("./System/Cache", file);
+      fs.unlinkSync(filePath);
+    });
+};
