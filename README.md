@@ -43,10 +43,15 @@ Konnichiwa Senpai, I am Infinity, an Opensource WhatsApp bot created by Ari_Senp
 
 -  <a href="https://bmc.link/arisenpaii" target="blank"><img src="https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-1.svg" /></a> 
 
-### `—◉ 💕 PLUGINS 💕`
+### `—◉ 💕 Update(4.0.0) 💕`
+***Added:***
+- Defuse => Made with Stable Deffusion api , it can genarate new , fantacy type or anime time picture .
+- Soundcloud => Will download given specific sound.
+- Fbdl => Can download only public video. (Will add private video downloader and story next update)
 
-- 𝑰𝒏 𝑭𝒖𝒕𝒖𝒓𝒆
-
+***Fixed:***
+- Fixed some bugs in commands and scrapers.
+- Fixed charecter datasets.
 ### `—◉ 💥 Scan QR 💥`
  
 <h4 align="center"> Scan QR
