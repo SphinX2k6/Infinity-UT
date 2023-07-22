@@ -415,16 +415,17 @@ case "setchar":
 
     await doReact("✅");
     await setChar(intinput);
-    await Infinity.updateProfilePicture(botNumber, { url: CData.charLogo })
+   // await Infinity.updateProfilePicture(botNumber, { url: CData.charLogo })
     await Infinity.sendMessage(
       m.from,
       {
         image: { url: CData.charLogo },
-        caption: `Character number *${intinput}* - *${CData.charName}* has been set successfully by *${pushName}*`,
+        caption: `Character number *${intinput}* - *${CData.charName}* has been set successfully by *${pushName}* 💫`,
       },
       { quoted: m }
     );
   } catch (e) {
+    m.reply('Got some issue when changing chars, so I set it to default value !')
     await setChar('0');
     
   }
