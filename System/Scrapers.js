@@ -1,7 +1,46 @@
 const axios = require('axios')
 const cheerio = require('cheerio')
 const vm = require('node:vm')
+const request = require('request');
 
+function convertToAnime(text, anu) {
+  const options = {
+    'method': 'POST',
+    'url': 'https://stablediffusionapi.com/api/v3/img2img',
+    'headers': {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      "key": "mtcWWtmvijA2YXbO9hn0IkXZuJUJedjhcfx8SqYwFcwcSgfwri50wS06Ecv4", //Well , you can definately add ur own key....
+      "prompt": text || "convert to SFW (Safe for Work) anime style, vibrant colors, dynamic poses, expressive characters, detailed backgrounds, smooth linework, soft shading, appealing character designs, no explicit content, suitable for all audiences, clean and wholesome aesthetics",
+      "negative_prompt": null,
+      "init_image": anu,
+      "width": "512",
+      "height": "512",
+      "samples": "1",
+      "num_inference_steps": "30",
+      "safety_checker": "true",
+      "enhance_prompt": "yes",
+      "guidance_scale": 7.5,
+      "strength": 0.7,
+      "seed": null,
+      "webhook": null,
+      "track_id": null
+    })
+  };
+
+  return new Promise((resolve, reject) => {
+    request(options, function (error, response) {
+      if (error) {
+        reject(error);
+      } else {
+        const parsedResponse = JSON.parse(response.body);
+        console.log(parsedResponse)
+        resolve(parsedResponse.output[0]);
+      }
+    });
+  });
+}
 
 function pinterest(querry){
 	return new Promise(async(resolve,reject) => {
@@ -167,7 +206,7 @@ function styletext(teks) {
     })
 }
 
-async function Infigmp4() {
+async function igdl() {
     let body = new URLSearchParams({
         "sf_url": encodeURI(arguments[0]),
         "sf_submit": "",
@@ -307,4 +346,4 @@ async function mediafireDl(url) {
 }
 
 
-module.exports = { pinterest, wallpaper, wikimedia, quotesAnime, aiovideodl, umma, ringtone, styletext, Infigmp4, InfFb, savefrom, mediafireDl }
+module.exports = { convertToAnime, pinterest, wallpaper, wikimedia, quotesAnime, aiovideodl, umma, ringtone, styletext, igdl, InfFb, savefrom, mediafireDl }
