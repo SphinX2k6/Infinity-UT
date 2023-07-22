@@ -1,7 +1,7 @@
 {
   "name": "infinity",
-  "version": "3.1.0",
-  "description": "The future of WhatsApp bots now with plugin support.",
+  "version": "4.0.0",
+  "description": "Infinity-UT possibilities are in our NAME!",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
