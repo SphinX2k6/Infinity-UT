@@ -68,12 +68,12 @@ Konnichiwa Senpai, I am Infinity, an Opensource WhatsApp bot created by Ari_Senp
 
 <p align="center" >
     <a href="https://discord.com/invite/zeonnodes">
-    <img src="http://zeonnodes.xyz/?utm_medium=company_profile&utm_source=trustpilot&utm_campaign=logo_click" width="170px" alt="Koyeb" >
+    <img src="https://svgshare.com/i/ztD.svg" width="170px" alt="Koyeb" >
     </a>
     <br>     
 </p>
   
-### `—◉ 💥 𝐃𝐞𝐩𝐥𝐨𝐲 𝐨𝐧 𝐤𝐨𝐲𝐛 💥`
+### `—◉ 💥 𝐃𝐞𝐩𝐥𝐨𝐲 𝐨𝐧 𝐤𝐨𝐲e𝐛 💥`
 
 <p align="center" >
     <a href="https://app.koyeb.com/deploy?type=git&repository=https://github.com/SphinX2k6/Infinity-UT&branch=master&name=infinity-ut">
