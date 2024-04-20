@@ -58,7 +58,7 @@ Konnichiwa Senpai, I am Infinity, an Opensource WhatsApp bot created by Ari_Senp
 </h4>
 
 <p align="center" >
-    <a href="https://marin-152-qr.aritramondal6.repl.co/">
+    <a href="http://89.33.85.28:19244/">
     <img src="https://github.com/SphinX2k6/Infinity-UT/assets/134761750/6057acc0-3271-4a0b-ab4b-e37fe2401ebc" width="170px" alt="Scan QR" >
     </a>
     <br>     
